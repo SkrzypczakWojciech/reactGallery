@@ -24,14 +24,15 @@ var MovieTitle = React.createClass({
 
   render: function() {
     return (
-      React.createElement('div', {},
         React.createElement('p', {}, {this.props.title})
       )
-    )
   },
 });
 
-var element = React.createElement(poster, {image: movie},
-	React.createElement(MovieTitle,{title: movie}));
+var element = React.createElement('div', {},
+	React.createElement(poster, {image: movie},
+		React.createElement(MovieTitle, {title: movie}));
 
   ReactDOM.render(element, document.getElementById('app'));
+
+  poster, {image: movie}
