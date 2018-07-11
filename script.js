@@ -1,5 +1,5 @@
 
-var Movie = React.createClass({
+var MoviePoster = React.createClass({
   propTypes: {
     poster: React.PropTypes.object.isRequired,
   },
@@ -13,18 +13,31 @@ var Movie = React.createClass({
   },
 });
 
+var MovieTitle = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string.isRequired,
+  },
+
+  render: function() {
+    return (
+      React.createElement('div', {},
+        React.createElement('p', {name: this.props.title.name})
+      )
+    )
+  },
+});
+
 var poster = {
   src: 'https://i.redd.it/9l8txmyi2fxz.jpg'
 };
 
-var MovieTitle = {
+var title = {
 	name: 'Harry Potter'
 };
 
-var MovieDesc = {
-	desc: 'film o harrym potterze'
-};
+var element = React.createElement(MoviePoster, {poster: poster},
+	React.createElement(MovieTitle, {title: title})
+	);
 
-var element = React.createElement(Movie, {poster: poster});
 
 ReactDOM.render(element, document.getElementById('app'));
