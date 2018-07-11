@@ -1,5 +1,5 @@
 var movie = {
-  name: 'Harry Potter',
+  title: 'Harry Potter',
   src: 'https://i.redd.it/9l8txmyi2fxz.jpg'
 };
 
@@ -25,7 +25,7 @@ var MovieTitle = React.createClass({
   render: function() {
     return (
       React.createElement('div', {},
-        React.createElement('h1', {})
+        React.createElement('p', {}, {this.props.title})
       )
     )
   },
