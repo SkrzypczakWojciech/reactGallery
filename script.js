@@ -1,13 +1,17 @@
+var movie = {
+  name: 'Harry Potter',
+  src: 'https://i.redd.it/9l8txmyi2fxz.jpg'
+};
 
-var MoviePoster = React.createClass({
+var poster = React.createClass({
   propTypes: {
-    poster: React.PropTypes.object.isRequired,
+    image: React.PropTypes.object.isRequired,
   },
 
   render: function() {
     return (
       React.createElement('div', {},
-        React.createElement('img', {src: this.props.poster.src})
+        React.createElement('img', {src: this.props.image.src})
       )
     )
   },
@@ -15,29 +19,19 @@ var MoviePoster = React.createClass({
 
 var MovieTitle = React.createClass({
   propTypes: {
-    title: React.PropTypes.string.isRequired,
+   title: React.PropTypes.string.isRequired,
   },
 
   render: function() {
     return (
       React.createElement('div', {},
-        React.createElement('p', {name: this.props.title.name})
+        React.createElement('h1', {})
       )
     )
   },
 });
 
-var poster = {
-  src: 'https://i.redd.it/9l8txmyi2fxz.jpg'
-};
+var element = React.createElement(poster, {image: movie},
+	React.createElement(MovieTitle,{title: movie}));
 
-var title = {
-	name: 'Harry Potter'
-};
-
-var element = React.createElement(MoviePoster, {poster: poster},
-	React.createElement(MovieTitle, {title: title})
-	);
-
-
-ReactDOM.render(element, document.getElementById('app'));
+  ReactDOM.render(element, document.getElementById('app'));
